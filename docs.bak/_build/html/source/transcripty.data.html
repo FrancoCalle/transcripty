@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>transcripty.data package &#8212; transcripty  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="transcripty.probabilitymodels package" href="transcripty.probabilitymodels.html" />
+    <link rel="prev" title="transcripty package" href="transcripty.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="transcripty-data-package">
+<h1>transcripty.data package<a class="headerlink" href="#transcripty-data-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-transcripty.data.calibration">
+<span id="transcripty-data-calibration-module"></span><h2>transcripty.data.calibration module<a class="headerlink" href="#module-transcripty.data.calibration" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="transcripty.data.calibration.CPMobjective">
+<code class="sig-prename descclassname">transcripty.data.calibration.</code><code class="sig-name descname">CPMobjective</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">target</em><span class="sig-paren">)</span><a class="headerlink" href="#transcripty.data.calibration.CPMobjective" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used as objective function in calibrateCPM</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<em>np.array</em><em>(</em><em>(</em><em>2</em><em>,</em><em>)</em><em>, </em><em>float64</em><em>)</em>) – An array of the parameters ordered according to CPMParams</p></li>
+<li><p><strong>target</strong> (<a class="reference internal" href="#transcripty.data.targets.CalibrationTargets" title="transcripty.data.targets.CalibrationTargets"><em>CalibrationTargets</em></a>) – The calibration targets</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>score</strong> – The score associated with a particular parameter set</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="transcripty.data.calibration.HPMobjective">
+<code class="sig-prename descclassname">transcripty.data.calibration.</code><code class="sig-name descname">HPMobjective</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">target</em><span class="sig-paren">)</span><a class="headerlink" href="#transcripty.data.calibration.HPMobjective" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used as objective function in calibrateHPM</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<em>np.array</em><em>(</em><em>(</em><em>4</em><em>,</em><em>)</em><em>, </em><em>float64</em><em>)</em>) – An array of the parameters ordered according to HPMParams</p></li>
+<li><p><strong>target</strong> (<a class="reference internal" href="#transcripty.data.targets.CalibrationTargets" title="transcripty.data.targets.CalibrationTargets"><em>CalibrationTargets</em></a>) – The calibration targets</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>score</strong> – The score associated with a particular parameter set</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="transcripty.data.calibration.calibrateCPM">
+<code class="sig-prename descclassname">transcripty.data.calibration.</code><code class="sig-name descname">calibrateCPM</code><span class="sig-paren">(</span><em class="sig-param">target=&lt;transcripty.data.targets.CalibrationTargets object&gt;</em>, <em class="sig-param">nevals=500</em><span class="sig-paren">)</span><a class="headerlink" href="#transcripty.data.calibration.calibrateCPM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches the parameter space to find the set of parameters that
+provide the best fit to our calibration targets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>target</strong> (<a class="reference internal" href="#transcripty.data.targets.CalibrationTargets" title="transcripty.data.targets.CalibrationTargets"><em>CalibrationTargets</em></a>) – The calibration targets</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>parameters</strong> – The parameters found by the optimization algorithm</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="transcripty.data.calibration.calibrateHPM">
+<code class="sig-prename descclassname">transcripty.data.calibration.</code><code class="sig-name descname">calibrateHPM</code><span class="sig-paren">(</span><em class="sig-param">target=&lt;transcripty.data.targets.CalibrationTargets object&gt;</em>, <em class="sig-param">nevals=500</em><span class="sig-paren">)</span><a class="headerlink" href="#transcripty.data.calibration.calibrateHPM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches the parameter space to find the set of parameters that
+provide the best fit to our calibration targets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>target</strong> (<a class="reference internal" href="#transcripty.data.targets.CalibrationTargets" title="transcripty.data.targets.CalibrationTargets"><em>CalibrationTargets</em></a>) – The calibration targets</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>parameters</strong> – The parameters found by the optimization algorithm</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-transcripty.data.targets">
+<span id="transcripty-data-targets-module"></span><h2>transcripty.data.targets module<a class="headerlink" href="#module-transcripty.data.targets" title="Permalink to this headline">¶</a></h2>
+<p>This file contains the calibration targets that we will use to find
+the “optimal” parameters for the model</p>
+<dl class="class">
+<dt id="transcripty.data.targets.CPMParams">
+<em class="property">class </em><code class="sig-prename descclassname">transcripty.data.targets.</code><code class="sig-name descname">CPMParams</code><span class="sig-paren">(</span><em class="sig-param">p</em>, <em class="sig-param">sigma</em><span class="sig-paren">)</span><a class="headerlink" href="#transcripty.data.targets.CPMParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="method">
+<dt id="transcripty.data.targets.CPMParams.p">
+<em class="property">property </em><code class="sig-name descname">p</code><a class="headerlink" href="#transcripty.data.targets.CPMParams.p" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="transcripty.data.targets.CPMParams.sigma">
+<em class="property">property </em><code class="sig-name descname">sigma</code><a class="headerlink" href="#transcripty.data.targets.CPMParams.sigma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="transcripty.data.targets.CalibrationTargets">
+<em class="property">class </em><code class="sig-prename descclassname">transcripty.data.targets.</code><code class="sig-name descname">CalibrationTargets</code><span class="sig-paren">(</span><em class="sig-param">credit_corr</em>, <em class="sig-param">y2_deciles</em><span class="sig-paren">)</span><a class="headerlink" href="#transcripty.data.targets.CalibrationTargets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This holds the calibration targets used for calibrating the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>credit_corr</strong> (<em>float64</em>) – The correlation between the credits earned in years 1 and 2</p></li>
+<li><p><strong>y2_deciles_by_quartile</strong> (<em>np.array</em><em>(</em><em>(</em><em>9</em><em>, </em><em>5</em><em>)</em><em>, </em><em>float64</em><em>)</em>) – The 20/50/80 percent quantiles of total credits earned after
+two years for each gpa quartile</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">See parameters</code></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="transcripty.data.targets.CalibrationTargets.compare_results">
+<code class="sig-name descname">compare_results</code><span class="sig-paren">(</span><em class="sig-param">gpa</em>, <em class="sig-param">credits</em>, <em class="sig-param">corrmult=25.0</em>, <em class="sig-param">normalize=False</em><span class="sig-paren">)</span><a class="headerlink" href="#transcripty.data.targets.CalibrationTargets.compare_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares the credit simulation results with the calibration
+targets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gpa</strong> (<em>np.array</em><em>(</em><em>(</em><em>N</em><em>,</em><em>)</em><em>, </em><em>float64</em><em>)</em>) – A simulation of gpa of N individuals</p></li>
+<li><p><strong>credits</strong> (<em>np.array</em><em>(</em><em>(</em><em>N</em><em>, </em><em>T_c</em><em>)</em><em>, </em><em>float64</em><em>)</em>) – A simulation of credits earned by N individuals over T_c
+periods</p></li>
+<li><p><strong>corrmult</strong> (<em>float64</em><em>, </em><em>optional</em><em>(</em><em>25.0</em><em>)</em>) – A multiplier used to scale the importance of the correlation
+between years 1 and 2</p></li>
+<li><p><strong>normalize</strong> (<em>bool</em><em>, </em><em>optional</em><em>(</em><em>false</em><em>)</em>) – If normalize is true then computes the percent difference
+in targets rather than absolute differences</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>diff</strong> – The ‘score’ of a particular simulation. The higher the
+score, the less we believe the parameters that generated
+the score</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="transcripty.data.targets.HPMParams">
+<em class="property">class </em><code class="sig-prename descclassname">transcripty.data.targets.</code><code class="sig-name descname">HPMParams</code><span class="sig-paren">(</span><em class="sig-param">gamma_min</em>, <em class="sig-param">gamma_1</em>, <em class="sig-param">gamma_2</em>, <em class="sig-param">sigma</em><span class="sig-paren">)</span><a class="headerlink" href="#transcripty.data.targets.HPMParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="method">
+<dt id="transcripty.data.targets.HPMParams.gamma_1">
+<em class="property">property </em><code class="sig-name descname">gamma_1</code><a class="headerlink" href="#transcripty.data.targets.HPMParams.gamma_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="transcripty.data.targets.HPMParams.gamma_2">
+<em class="property">property </em><code class="sig-name descname">gamma_2</code><a class="headerlink" href="#transcripty.data.targets.HPMParams.gamma_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="transcripty.data.targets.HPMParams.gamma_min">
+<em class="property">property </em><code class="sig-name descname">gamma_min</code><a class="headerlink" href="#transcripty.data.targets.HPMParams.gamma_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="transcripty.data.targets.HPMParams.sigma">
+<em class="property">property </em><code class="sig-name descname">sigma</code><a class="headerlink" href="#transcripty.data.targets.HPMParams.sigma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-transcripty.data">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-transcripty.data" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">transcripty</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">transcripty</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="transcripty.html">transcripty package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="transcripty.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transcripty.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transcripty.html#module-transcripty.model">transcripty.model module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transcripty.html#module-transcripty.version">transcripty.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transcripty.html#module-transcripty">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">transcripty</a><ul>
+  <li><a href="transcripty.html">transcripty package</a><ul>
+      <li>Previous: <a href="transcripty.html" title="previous chapter">transcripty package</a></li>
+      <li>Next: <a href="transcripty.probabilitymodels.html" title="next chapter">transcripty.probabilitymodels package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Chase.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/transcripty.data.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

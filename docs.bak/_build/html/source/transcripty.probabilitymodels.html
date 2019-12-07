@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>transcripty.probabilitymodels package &#8212; transcripty  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="transcripty.data package" href="transcripty.data.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="transcripty-probabilitymodels-package">
+<h1>transcripty.probabilitymodels package<a class="headerlink" href="#transcripty-probabilitymodels-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-transcripty.probabilitymodels.common_probability">
+<span id="transcripty-probabilitymodels-common-probability-module"></span><h2>transcripty.probabilitymodels.common_probability module<a class="headerlink" href="#module-transcripty.probabilitymodels.common_probability" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="transcripty.probabilitymodels.common_probability.CommonProbabilityModel">
+<em class="property">class </em><code class="sig-prename descclassname">transcripty.probabilitymodels.common_probability.</code><code class="sig-name descname">CommonProbabilityModel</code><span class="sig-paren">(</span><em class="sig-param">p</em>, <em class="sig-param">sigma</em>, <em class="sig-param">Tc</em>, <em class="sig-param">ncoursesattempted</em>, <em class="sig-param">ncreditspercourse</em>, <em class="sig-param">ncreditsgrad</em><span class="sig-paren">)</span><a class="headerlink" href="#transcripty.probabilitymodels.common_probability.CommonProbabilityModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="transcripty.html#transcripty.model.CreditAccumulationModel" title="transcripty.model.CreditAccumulationModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">transcripty.model.CreditAccumulationModel</span></code></a></p>
+<p>This is a child class of CreditAccumulationModel. It implements a
+call method which evaluates the probability of passing courses
+given an individual’s ability level and gpa. This method allows
+the parent class to take care of all simulation</p>
+<p>In this model, all individual’s share a probability of passing
+a course.</p>
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.common_probability.CommonProbabilityModel.p">
+<code class="sig-name descname">p</code><a class="headerlink" href="#transcripty.probabilitymodels.common_probability.CommonProbabilityModel.p" title="Permalink to this definition">¶</a></dt>
+<dd><p>The common probability of passing a course</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.common_probability.CommonProbabilityModel.sigma">
+<code class="sig-name descname">sigma</code><a class="headerlink" href="#transcripty.probabilitymodels.common_probability.CommonProbabilityModel.sigma" title="Permalink to this definition">¶</a></dt>
+<dd><p>The standard deviation of the GPA shock. The higher the sigma,
+the less correlated ability and GPA are.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.common_probability.CommonProbabilityModel.Tc">
+<code class="sig-name descname">Tc</code><a class="headerlink" href="#transcripty.probabilitymodels.common_probability.CommonProbabilityModel.Tc" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of years an individual can stay enrolled in college</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.common_probability.CommonProbabilityModel.ncoursesattempted">
+<code class="sig-name descname">ncoursesattempted</code><a class="headerlink" href="#transcripty.probabilitymodels.common_probability.CommonProbabilityModel.ncoursesattempted" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of courses an individual attempts per year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.common_probability.CommonProbabilityModel.ncreditspercourse">
+<code class="sig-name descname">ncreditspercourse</code><a class="headerlink" href="#transcripty.probabilitymodels.common_probability.CommonProbabilityModel.ncreditspercourse" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of credits each course is worth</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.common_probability.CommonProbabilityModel.ncreditsgrad">
+<code class="sig-name descname">ncreditsgrad</code><a class="headerlink" href="#transcripty.probabilitymodels.common_probability.CommonProbabilityModel.ncreditsgrad" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of credits required to graduate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-transcripty.probabilitymodels.heterogeneous_probability">
+<span id="transcripty-probabilitymodels-heterogeneous-probability-module"></span><h2>transcripty.probabilitymodels.heterogeneous_probability module<a class="headerlink" href="#module-transcripty.probabilitymodels.heterogeneous_probability" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel">
+<em class="property">class </em><code class="sig-prename descclassname">transcripty.probabilitymodels.heterogeneous_probability.</code><code class="sig-name descname">HeterogeneousProbabilityModel</code><span class="sig-paren">(</span><em class="sig-param">gamma_min</em>, <em class="sig-param">gamma_1</em>, <em class="sig-param">gamma_2</em>, <em class="sig-param">sigma</em>, <em class="sig-param">Tc</em>, <em class="sig-param">ncoursesattempted</em>, <em class="sig-param">ncreditspercourse</em>, <em class="sig-param">ncreditsgrad</em><span class="sig-paren">)</span><a class="headerlink" href="#transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="transcripty.html#transcripty.model.CreditAccumulationModel" title="transcripty.model.CreditAccumulationModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">transcripty.model.CreditAccumulationModel</span></code></a></p>
+<p>This is a child class of CreditAccumulationModel. It implements a
+call method which evaluates the probability of passing courses
+given an individual’s ability level and gpa. This method allows
+the parent class to take care of all simulation</p>
+<p>In this model, the probability with which a student passes their
+courses is given by</p>
+<div class="math notranslate nohighlight">
+\[p(a) = \frac{1 - \gamma_\text{min}}{1 + \gamma_1 \exp^{-\gamma_2 a_i}}\]</div>
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.gamma_min">
+<code class="sig-name descname">gamma_min</code><a class="headerlink" href="#transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.gamma_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>The minimum probability of passing a course</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.gamma_1">
+<code class="sig-name descname">gamma_1</code><a class="headerlink" href="#transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.gamma_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>A parameter of the probability function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.gamma_2">
+<code class="sig-name descname">gamma_2</code><a class="headerlink" href="#transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.gamma_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>A parameter of the probability function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.sigma">
+<code class="sig-name descname">sigma</code><a class="headerlink" href="#transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.sigma" title="Permalink to this definition">¶</a></dt>
+<dd><p>The standard deviation of the GPA shock. The higher the sigma,
+the less correlated ability and GPA are.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.Tc">
+<code class="sig-name descname">Tc</code><a class="headerlink" href="#transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.Tc" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of years an individual can stay enrolled in college</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.ncoursesattempted">
+<code class="sig-name descname">ncoursesattempted</code><a class="headerlink" href="#transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.ncoursesattempted" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of courses an individual attempts per year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.ncreditspercourse">
+<code class="sig-name descname">ncreditspercourse</code><a class="headerlink" href="#transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.ncreditspercourse" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of credits each course is worth</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.ncreditsgrad">
+<code class="sig-name descname">ncreditsgrad</code><a class="headerlink" href="#transcripty.probabilitymodels.heterogeneous_probability.HeterogeneousProbabilityModel.ncreditsgrad" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of credits required to graduate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-transcripty.probabilitymodels">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-transcripty.probabilitymodels" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">transcripty</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">transcripty</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="transcripty.html">transcripty package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="transcripty.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transcripty.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transcripty.html#module-transcripty.model">transcripty.model module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transcripty.html#module-transcripty.version">transcripty.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transcripty.html#module-transcripty">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">transcripty</a><ul>
+  <li><a href="transcripty.html">transcripty package</a><ul>
+      <li>Previous: <a href="transcripty.data.html" title="previous chapter">transcripty.data package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Chase.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/transcripty.probabilitymodels.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: transcripty
+Version: 0.0.1a0
+Summary: Transcripty is a package for replicating section 2 of Hendricks Leukhina 2017
+Home-page: https://github.com/cc7768/transcripty
+Author: Chase Coleman
+Author-email: cc7768@gmail.com
+License: MIT
+Project-URL: Documentation, http://transcripty.readthedocs.io/en/latest
+Project-URL: NYU Predoctoral repo, https://github.com/nyupredocs
+Description: 
+        Transcripty is a package for replicating section 2 of _How risky is college
+        investment_ by Lutz Hendricks and Oksana Leukhina.
+        
+        Section 2 presents a model of college credit accumulation. The probability
+        that a student passes a particular course is governed by a probability
+        that is conditional on a student's innate ability.
+        
+        - A student's ability given by `a \sim N(0, 1)`
+        - A student's GPA given by `GPA = a + \varepsilon`  where  `\varepsilon \sim N(0, \sigma^2)`
+        - A student enrolls in 12 courses per year which are each worth 3 credits
+        - A student passes each course with probability p(a)
+        - Student graduates if they accumulate 125 credits by the end of year 6
+        
+Keywords: transcript,college,quantitative,economics
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering
+Description-Content-Type: text/markdown

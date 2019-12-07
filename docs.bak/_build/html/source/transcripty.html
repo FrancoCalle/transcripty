@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>transcripty package &#8212; transcripty  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="transcripty.data package" href="transcripty.data.html" />
+    <link rel="prev" title="transcripty" href="modules.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="transcripty-package">
+<h1>transcripty package<a class="headerlink" href="#transcripty-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="transcripty.data.html">transcripty.data package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transcripty.data.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transcripty.data.html#module-transcripty.data.calibration">transcripty.data.calibration module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transcripty.data.html#module-transcripty.data.targets">transcripty.data.targets module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transcripty.data.html#module-transcripty.data">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transcripty.probabilitymodels.html">transcripty.probabilitymodels package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transcripty.probabilitymodels.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transcripty.probabilitymodels.html#module-transcripty.probabilitymodels.common_probability">transcripty.probabilitymodels.common_probability module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transcripty.probabilitymodels.html#module-transcripty.probabilitymodels.heterogeneous_probability">transcripty.probabilitymodels.heterogeneous_probability module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transcripty.probabilitymodels.html#module-transcripty.probabilitymodels">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-transcripty.model">
+<span id="transcripty-model-module"></span><h2>transcripty.model module<a class="headerlink" href="#module-transcripty.model" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="transcripty.model.CreditAccumulationModel">
+<em class="property">class </em><code class="sig-prename descclassname">transcripty.model.</code><code class="sig-name descname">CreditAccumulationModel</code><span class="sig-paren">(</span><em class="sig-param">Tc</em>, <em class="sig-param">ncoursesattempted</em>, <em class="sig-param">ncreditspercourse</em>, <em class="sig-param">ncreditsgrad</em>, <em class="sig-param">sigma</em><span class="sig-paren">)</span><a class="headerlink" href="#transcripty.model.CreditAccumulationModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is a parent class which implements a general credit accumulation
+method and implements a simulate method that could be used across
+various binomial credit accumulation models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Tc</strong> (<em>int</em>) – The number of years an individual can stay enrolled in college</p></li>
+<li><p><strong>ncoursesattempted</strong> (<em>int</em>) – The number of courses an individual attempts per year</p></li>
+<li><p><strong>ncreditspercourse</strong> (<em>int</em>) – The number of credits each course is worth</p></li>
+<li><p><strong>ncreditsgrad</strong> (<em>int</em>) – The number of credits required to graduate</p></li>
+<li><p><strong>sigma</strong> (<em>float64</em>) – The standard deviation of the GPA shock. The higher the sigma,
+the less correlated ability and GPA are.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">See Parameters</code></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="transcripty.model.CreditAccumulationModel.simulate">
+<code class="sig-name descname">simulate</code><span class="sig-paren">(</span><em class="sig-param">N</em><span class="sig-paren">)</span><a class="headerlink" href="#transcripty.model.CreditAccumulationModel.simulate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulates model outcomes, including ability level, GPA, and
+credit accumulation process, for <cite>N</cite> individuals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>N</strong> (<em>Int</em>) – The number of individuals that we provide a simulation for</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>a_i</strong> (<em>np.array((N,), float64)</em>) – The ith element is individual i’s ability level</p></li>
+<li><p><strong>gpa_i</strong> (<em>np.array((N,), float64)</em>) – The ith element is individual i’s GPA</p></li>
+<li><p><strong>credits</strong> (<em>np.array((N, T_c), int)</em>) – The [i, j] element is the number of credits accumulated by
+agent i in period j</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-transcripty.version">
+<span id="transcripty-version-module"></span><h2>transcripty.version module<a class="headerlink" href="#module-transcripty.version" title="Permalink to this headline">¶</a></h2>
+<p>This is a VERSION file and should NOT be manually altered</p>
+</div>
+<div class="section" id="module-transcripty">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-transcripty" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">transcripty</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">transcripty</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">transcripty package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-transcripty.model">transcripty.model module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-transcripty.version">transcripty.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-transcripty">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">transcripty</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">transcripty</a></li>
+      <li>Next: <a href="transcripty.data.html" title="next chapter">transcripty.data package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Chase.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/transcripty.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
